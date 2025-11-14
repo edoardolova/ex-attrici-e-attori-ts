@@ -84,5 +84,17 @@ async function getAllActresses():Promise <Actress[]> {
 
 }
 
+async function getActresses(actressesIsds:number[]): Promise  <(Actress | null)[]> {
+  try{
+    const promises = await actressesIsds.map(id => getActress(id));
+    return await Promise.all(promises);
+  }
+  catch(err){
+    console.error(err);
+    return []
+  }
+}
+
 getActress(40).then(actress => console.log(actress))
 getAllActresses().then(actresses => console.log(actresses))
+getActresses([0,2,3,4,5]).then(actresses => console.log(actresses))
