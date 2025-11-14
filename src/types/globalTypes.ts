@@ -1,4 +1,4 @@
-type Person = {
+export type Person = {
     readonly id: number
     readonly name: string
     birth_year: number
@@ -7,7 +7,7 @@ type Person = {
     image: string
 }
 
-type Actress = Person & {
+export type Actress = Person & {
     most_famous_movies: [string, string, string],
     awards: string,
     nationality: 'American' | 'British' | 'Australian' | 'Israeli-American' | 'South African'
